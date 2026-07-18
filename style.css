@@ -1,0 +1,354 @@
+/* =====================
+   Google Fonts Import
+======================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap');
+
+/* =====================
+   Reset & Base
+======================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fdf6ec;
+    color: #3b2314;
+    line-height: 1.7;
+}
+
+/* =====================
+   Keyframe Animations
+======================== */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-60px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(60px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes underlineGrow {
+    from { width: 0; }
+    to   { width: 50px; }
+}
+
+@keyframes floatCup {
+    0%, 100% { transform: translateY(0px) translateX(-50%); }
+    50%       { transform: translateY(-12px) translateX(-50%); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.15); }
+}
+
+/* =====================
+   Header
+======================== */
+header {
+    background: linear-gradient(135deg, #3b2314, #6b3f24);
+    color: #fdf6ec;
+    text-align: center;
+    padding: 70px 20px 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "☕";
+    position: absolute;
+    font-size: 220px;
+    opacity: 0.05;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: floatCup 4s ease-in-out infinite;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    animation: fadeInDown 0.9s ease both;
+}
+
+header p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #f5c58a;
+    animation: fadeInDown 1.1s ease 0.2s both;
+}
+
+/* =====================
+   HR Dividers
+======================== */
+hr {
+    border: none;
+    border-top: 1px solid #e4c9a0;
+    margin: 0;
+}
+
+/* =====================
+   Navigation
+======================== */
+nav {
+    background-color: #4e2c14;
+    text-align: center;
+    padding: 16px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    font-size: 0;
+    animation: fadeIn 1s ease 0.4s both;
+}
+
+nav a {
+    color: #f5c58a;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 22px;
+    border-radius: 30px;
+    transition: background 0.3s, color 0.3s, transform 0.2s, box-shadow 0.3s;
+    display: inline-block;
+    animation: fadeInDown 0.6s ease both;
+}
+
+nav a:nth-child(1) { animation-delay: 0.5s; }
+nav a:nth-child(2) { animation-delay: 0.65s; }
+nav a:nth-child(3) { animation-delay: 0.8s; }
+nav a:nth-child(4) { animation-delay: 0.95s; }
+
+nav a:hover {
+    background-color: #f5c58a;
+    color: #3b2314;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* =====================
+   Card Grid Container
+======================== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 30px;
+}
+
+/* =====================
+   Section Cards
+======================== */
+section {
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px 35px;
+    box-shadow: 0 8px 30px rgba(59, 35, 20, 0.1);
+    border-top: 5px solid #c47a3a;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.7s ease both;
+}
+
+section:nth-child(1) { animation-delay: 0.1s; animation-name: slideInLeft; }
+section:nth-child(2) { animation-delay: 0.2s; animation-name: slideInRight; }
+section:nth-child(3) { animation-delay: 0.3s; animation-name: slideInLeft; }
+section:nth-child(4) { animation-delay: 0.4s; animation-name: slideInRight; }
+
+/* Corner emoji watermark per card */
+section#home::after    { content: "🏠"; }
+section#menu::after    { content: "☕"; }
+section#about::after   { content: "🌿"; }
+section#contact::after { content: "📬"; }
+
+section::after {
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    font-size: 80px;
+    opacity: 0.05;
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+section:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(59, 35, 20, 0.18);
+}
+
+section:hover::after {
+    opacity: 0.1;
+    transform: scale(1.1) rotate(-5deg);
+}
+
+section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    color: #6b3f24;
+    margin-bottom: 18px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, #c47a3a, #f5c58a);
+    border-radius: 2px;
+    animation: underlineGrow 0.8s ease 0.5s forwards;
+}
+
+section p {
+    font-size: 0.97rem;
+    color: #5a3b28;
+    line-height: 1.9;
+}
+
+/* =====================
+   Menu Section
+======================== */
+#menu ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+#menu ul li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    background: #fdf6ec;
+    border-radius: 10px;
+    border-left: 4px solid #c47a3a;
+    font-size: 0.95rem;
+    color: #3b2314;
+    font-weight: 500;
+    opacity: 0;
+    animation: slideInLeft 0.5s ease forwards;
+    transition: background 0.3s, transform 0.25s, box-shadow 0.25s;
+    cursor: default;
+}
+
+#menu ul li:nth-child(1) { animation-delay: 0.3s; }
+#menu ul li:nth-child(2) { animation-delay: 0.45s; }
+#menu ul li:nth-child(3) { animation-delay: 0.6s; }
+#menu ul li:nth-child(4) { animation-delay: 0.75s; }
+#menu ul li:nth-child(5) { animation-delay: 0.9s; }
+
+#menu ul li:hover {
+    background: #f5e6d0;
+    transform: translateX(6px);
+    box-shadow: 0 4px 14px rgba(196, 122, 58, 0.2);
+}
+
+#menu ul li::after {
+    content: "☕";
+    font-size: 1rem;
+    opacity: 0.4;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+#menu ul li:hover::after {
+    opacity: 1;
+    transform: rotate(-10deg) scale(1.3);
+    animation: pulse 1s ease infinite;
+}
+
+/* =====================
+   Contact Section
+======================== */
+#contact p {
+    margin-bottom: 10px;
+    padding: 12px 16px;
+    background: #fdf6ec;
+    border-radius: 8px;
+    font-size: 0.92rem;
+    color: #4e2c14;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+    transition: background 0.3s, transform 0.25s;
+}
+
+#contact p:nth-child(1) { animation-delay: 0.3s; }
+#contact p:nth-child(2) { animation-delay: 0.45s; }
+#contact p:nth-child(3) { animation-delay: 0.6s; }
+
+#contact p:hover {
+    background: #f5e6d0;
+    transform: translateX(6px);
+}
+
+#contact p:nth-child(1)::before { content: "✉️  "; }
+#contact p:nth-child(2)::before { content: "📞  "; }
+#contact p:nth-child(3)::before { content: "📍  "; }
+
+/* =====================
+   Footer
+======================== */
+footer {
+    background: #3b2314;
+    color: #f5c58a;
+    text-align: center;
+    padding: 28px 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-top: 20px;
+    animation: fadeIn 1.2s ease both;
+}
+
+/* =====================
+   Responsive — stack on mobile
+======================== */
+@media (max-width: 700px) {
+    .card-grid {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+        margin: 30px auto;
+    }
+
+    header h1 { font-size: 2rem; }
+
+    nav a {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
